@@ -8,7 +8,7 @@ function App() {
   const [create, setCreate] = useState(false);
 
   return (
-    <div className="App">
+    <div>
       {!create && (
         <div>
           <TodoList tasks={tasks} setTasks={setTasks} />

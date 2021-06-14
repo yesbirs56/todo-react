@@ -17,19 +17,32 @@ const TodoList = ({ tasks, setTasks }) => {
   return (
     <div>
       {editIndex === -1 && (
-        <ul>
-          {tasks.map((task, index) => {
-            return (
-              <div key={index}>
-                <li>
-                  {task}
-                  <button onClick={() => handleTaskChange(index)}>Edit</button>
-                  <button onClick={() => handleDelete(index)}>Delete</button>
-                </li>
-              </div>
-            );
-          })}
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Task Text</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tasks.map((task, index) => {
+              return (
+                <tr key={index}>
+                  <td>{task}</td>
+                  <td>
+                    <button onClick={() => handleTaskChange(index)}>
+                      Edit
+                    </button>
+                  </td>
+                  <td>
+                    <button onClick={() => handleDelete(index)}>Delete</button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       )}
       {editIndex !== -1 && (
         <EditTask
